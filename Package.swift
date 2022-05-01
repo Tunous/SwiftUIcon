@@ -12,10 +12,8 @@ let package = Package(
         .target(
             name: "SwiftUIcon",
             exclude: [
-                "main.swift",
-                "IconGenerator.swift"
-            ],
-            sources: ["Icon+PreviewHelpers.swift"]
+                "main.swift"
+            ]
         ),
     ]
 )

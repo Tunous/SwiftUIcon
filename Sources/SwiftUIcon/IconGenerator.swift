@@ -10,7 +10,7 @@ import SwiftUI
 
 #if os(macOS)
 
-enum Idiom: String {
+public enum Idiom: String {
     case iPad = "ipad"
     case iPhone = "iphone"
     case mac = "mac"
@@ -19,7 +19,7 @@ enum Idiom: String {
 
 /// An IconSet based around a View for a given set of idioms
 @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
-struct IconSet<Content: View>: Encodable {
+public struct IconSet<Content: View>: Encodable {
 
     /// The View to use when generating the IconSet
     let content: Content
@@ -30,7 +30,7 @@ struct IconSet<Content: View>: Encodable {
     /// Creates an IconSet for the given idioms based on the passed in View
     /// - Parameter idioms: A Set of idioms to use when generating the IconSet
     /// - Parameter view: The View to base the generated icon off of
-    init(idioms: Set<Idiom>, view: Content) {
+    public init(idioms: Set<Idiom>, view: Content) {
         images = [
             .init(idiom: .iPad, size: CGSize(width: 20, height: 20), scale: .oneX, placeholder: !idioms.contains(.iPad)),
             .init(idiom: .iPad, size: CGSize(width: 20, height: 20), scale: .twoX, placeholder: !idioms.contains(.iPad)),
@@ -142,7 +142,7 @@ struct IconSet<Content: View>: Encodable {
     /// Writes the AppIcon.appiconset to the given URL for the xcassets folder. This will overwrite any existing AppIcon.appiconset that exists and will fail if any
     /// of the icons can't be generated or written to the proper locations.
     /// - Parameter url: The file URL that points to the `Assets.xcassets` folder in the project directory
-    func write(to url: URL) throws {
+    public func write(to url: URL) throws {
 
         // create the folder "AppIcon.appiconset"
         let iconSetUrl = url.appendingPathComponent("AppIcon.appiconset", isDirectory: true)
